@@ -1,5 +1,13 @@
-<?php include 'function/connect.php';?>
-<?php include 'function/validateSession.php';?>
+<?php include 'function/connect.php';
+include 'function/validateSession.php';
+
+$query = "SELECT id_ruangan, nama_ruangan FROM ruangan";
+$result = mysqli_query($conn, $query);
+
+// Check for query execution errors
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -124,96 +132,41 @@
               </div>
               <div class="card-body">
                 <ul class="pagination pagination-month justify-content-center">
-                  <li class="page-item"><a class="page-link" href="#">«</a></li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">F</p>
-                          <p class="page-year">101</p>
-                      </a>
-                  </li>
-                  <li class="page-item active">
-                      <a class="page-link" href="#">
-                          <p class="page-month">F</p>
-                          <p class="page-year">102</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">F</p>
-                          <p class="page-year">103</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Apr</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">May</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Jun</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Jul</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Aug</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Sep</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Oct</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Nov</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Dec</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item">
-                      <a class="page-link" href="#">
-                          <p class="page-month">Dec</p>
-                          <p class="page-year">2021</p>
-                      </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">»</a></li>
-                </ul>
-              </div>
+
+                                <?php
+                                // Loop through the result set and generate links
+                                echo '<li class="page-item"><a class="page-link" href="#">«</a></li>';
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $id_ruangan = $row['id_ruangan'];
+                                    $nama_ruangan = $row['nama_ruangan'];
+
+                                    // Modify the href as per your requirement
+                                    $href = "detailruang.php?id=" . $id_ruangan;
+
+                                    echo '
+                                    <li class="page-item">
+                                            <a class="page-link" href="' . $href . '">
+                                                <p class="page-month">' . $nama_ruangan . '</p>
+                                                <p class="page-year">' . $id_ruangan . '</p>
+                                            </a>
+                                          </li>';
+                                }
+
+                                // Free the result set
+                                mysqli_free_result($result);
+                                ?>
+
+                                <li class="page-item"><a class="page-link" href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
     <!-- /.content -->
-  </div>
+    </div>
   <!-- /.content-wrapper -->
   <?php include 'layout/footer.php'?>
 

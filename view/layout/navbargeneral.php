@@ -35,7 +35,7 @@
       
       <li class="nav-item">
         <!--Ini ntar Diubah buat template surat peminjaman-->
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button" title='Template Surat Peminjaman'>
+        <a class="nav-link"  href="#" role="button" title='Template Surat Peminjaman'>
           <i class="nav-icon fas fa-file"></i>
         </a>
       </li>

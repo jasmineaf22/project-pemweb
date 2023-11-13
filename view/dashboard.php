@@ -1,4 +1,5 @@
 <?php include 'function/connect.php';?>
+<?php include 'function/connect.php';?>
 <?php include 'function/validateSession.php';?>
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Peminjaman Ruang FT </a></li>
+              <li class="breadcrumb-item"><a href="#">Peminjaman Ruang FT</a></li>
               <li class="breadcrumb-item active">Home</li>
             </ol>
           </div><!-- /.col -->
@@ -96,3 +97,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="../dist/js/adminlte.min.js"></script>
 </body>
 </html>
+
