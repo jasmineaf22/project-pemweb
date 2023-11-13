@@ -1,3 +1,6 @@
+<?php include 'function/connect.php';?>
+<?php include 'function/validateSession.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,6 +188,12 @@
                   <li class="page-item">
                       <a class="page-link" href="#">
                           <p class="page-month">Nov</p>
+                          <p class="page-year">2021</p>
+                      </a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">
+                          <p class="page-month">Dec</p>
                           <p class="page-year">2021</p>
                       </a>
                   </li>

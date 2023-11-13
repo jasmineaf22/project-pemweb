@@ -40,8 +40,8 @@
         </a>
       </li>
       <li class="nav-item">
-            <a href="../calendar.php" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
+            <a href="function/logout.php" class="nav-link">
+            <i class="fas fa-times"></i>
             </a>
       </li>
     </ul>

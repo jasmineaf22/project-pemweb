@@ -1,3 +1,6 @@
+<?php include 'function/connect.php';?>
+<?php include 'function/validateSession.php';?>
+
 <!DOCTYPE html>
 <!--
 This is a  template page. Use this page to start your new project from
@@ -23,6 +26,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <?php include 'layout/sidebar.php';?>
 
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -34,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Peminjaman Ruang FT</a></li>
+              <li class="breadcrumb-item"><a href="#">Peminjaman Ruang FT </a></li>
               <li class="breadcrumb-item active">Home</li>
             </ol>
           </div><!-- /.col -->

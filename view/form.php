@@ -1,3 +1,6 @@
+<?php include 'function/connect.php';?>
+<?php include 'function/validateSession.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
