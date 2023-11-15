@@ -83,8 +83,8 @@
                             <div class="container text-center">
                               <img src="<?= $gedungImage ?>" width="50%" class="mx-auto py-3" alt="">
                             </div>
-                            <br>
-                            <?= $gedungDescription ?>
+                            <br><div class="text-justify">
+                            <?= $gedungDescription ?></div>
                             <br><br>
 
                             <?php if ($hasRooms) { ?>
@@ -102,8 +102,9 @@
                                   while ($roomRow = mysqli_fetch_assoc($roomsResult)) {
                                     $roomId = $roomRow['id_ruangan'];
                                     $roomName = $roomRow['nama_ruangan'];
+                                    $href="detailruang.php?id=$roomId"
                                   ?>
-                                    <a class="dropdown-item" href="detailruang.php"><?= $roomName ?></a>
+                                    <a class="dropdown-item" href="<?=$href?>"><?= $roomName ?></a>
                                   <?php } ?>
                                 </div>
                               </div>

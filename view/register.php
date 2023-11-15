@@ -1,3 +1,5 @@
+<?php include 'function/connect.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,14 +44,26 @@
           </div>
         </div>
             <div class="input-group mb-3">
-        <select class="form-control" name="id_jurusan" required>
-            <option value="" selected disabled>Jurusan</option>
-            <option value="1">Informatika</option>
-            <option value="2">Teknik Elektro</option>
-            <option value="3">Teknik Sipil</option>
-            <option value="4">Teknik Geologi</option>
-            <option value="5">Teknik Industri</option>
-          </select>
+            <select class="form-control" name="id_jurusan" required>
+    <?php
+    // Fetch values from the 'jurusan' table
+    $query = "SELECT * FROM jurusan";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<option value="" selected disabled>Jurusan</option>';
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id_jurusan = $row['id_jurusan'];
+            $nama = $row['nama'];
+
+            echo '<option value="' . $id_jurusan . '">' . $nama . '</option>';
+        }
+    }
+    ?>
+</select>
+
+          
         <div class="input-group-append">
             <div class="input-group-text">
                 <span class="fas fa-graduation-cap"></span>
@@ -57,14 +71,6 @@
         </div>
     </div>
 
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nomor HP" name="no_hp">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-phone"></span>
-            </div>
-          </div>
-        </div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password" name="password">
           <div class="input-group-append">
@@ -85,11 +91,11 @@
 
       <div class="social-auth-links text-center">
         <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
+        <a href="https://id-id.facebook.com/" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i>
           Sign up using Facebook
         </a>
-        <a href="https://id-id.facebook.com/" class="btn btn-block btn-danger">
+        <a href="https://google.com/" class="btn btn-block btn-danger">
           <i class="fab fa-google mr-2"></i>
           Sign up using Google
         </a>

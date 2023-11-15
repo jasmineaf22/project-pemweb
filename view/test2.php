@@ -35,3 +35,24 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="card card-primary">
+  <div class="card-header">
+    <h5 class="m-0">
+      <a class="d-block w-100" data-toggle="collapse" href="#collapseAlur" aria-expanded="true" aria-controls="collapseAlur">
+        Rincian Alur Peminjaman
+      </a>
+    </h5>
+  </div>
+  <div id="collapseAlur" class="collapse show">
+    <div class="card-body text-center">
+      <img src='../img/Alur.png' height='1000'><br><br>
+      <a href="gedung.php" class="btn btn-primary">Booking Sekarang</a>
+    </div>
+  </div>
+</div>
+
+<?
+
+
+

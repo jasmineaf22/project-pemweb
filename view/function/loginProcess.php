@@ -24,12 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else {
             // Password tidak cocok
-            echo "Password salah. Silakan coba lagi.";
+            
+            echo "<script>alert('Password salah. Silakan coba lagi.');
+            window.location.href='../login.php';</script>";
         }
     } else {
         // User tidak ditemukan
-        echo "User dengan email '$email' tidak ditemukan.";
-    }
+        echo "<script>alert('User dengan email '$email' tidak ditemukan.');
+        window.location.href='../login.php`1`';</script>";
+        
+    } 
 }
 
 $conn->close();

@@ -40,10 +40,18 @@
             <a href="../view/dashboard.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
-                Home
+                Dashboard
               </p>
             </a>
           </li>
+        </ul>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+                <a href="../view/table.php" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                  <p>Jadwal Peminjaman</p>
+                </a>
+          </li> 
         </ul>
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">

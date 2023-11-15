@@ -30,12 +30,14 @@
         </div>
       </li>
 
+      <script src="../function/search.js"></script>
+
       
       <!-- Notifications Dropdown Menu -->
       
       <li class="nav-item">
         <!--Ini ntar Diubah buat template surat peminjaman-->
-        <a class="nav-link"  href="#" role="button" title='Template Surat Peminjaman'>
+        <a class="nav-link"  href="../template.pdf" role="button" title='Template Surat Peminjaman'>
           <i class="nav-icon fas fa-file"></i>
         </a>
       </li>

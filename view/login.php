@@ -1,3 +1,4 @@
+<?php include 'function/connect.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

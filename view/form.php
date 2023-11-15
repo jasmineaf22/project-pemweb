@@ -1,5 +1,31 @@
 <?php include 'function/connect.php';?>
 <?php include 'function/validateSession.php';?>
+<?php
+$organisasi = "";
+$keperluan = "";
+$id_ruangan = "";
+$waktu_awal = "";
+$waktu_selesai = "";
+
+if (isset($_GET['edit'])) {
+    $id_peminjaman = $_GET['edit'];
+    $query = "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman";
+    $result = $conn->query($query);
+
+    // Check if the row exists
+    if ($result->num_rows > 0) {
+        // Fetch the data from the result set
+        $row = $result->fetch_assoc();
+
+        // Assign the values to variables
+        $organisasi = $row['organisasi'];
+        $keperluan = $row['keperluan'];
+        $id_ruangan = $row['id_ruangan'];
+        $waktu_awal = $row['waktu_awal'];
+        $waktu_selesai = $row['waktu_selesai'];
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,35 +79,64 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nama</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Lengkap" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Lembaga</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Lembaga/Organisasi" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Keterangan</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Acara" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Waktu Awal</label>
-                    <input type="datetime-local" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Waktu Selesai</label>
-                    <input type="datetime-local" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                  </div>
-                </div>
-                <!-- /.card-body -->
+              <!-- Assuming you have already included the necessary PHP files for database connection -->
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+<form method="post" action="function/formProcess.php">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap" value="<?= $user['nama']; ?>" disabled>
+        </div>
+        <div class="form-group">
+            <label for="organisasi">Organisasi</label>
+            <input type="text" class="form-control" id="organisasi" name="organisasi" placeholder="Lembaga/Organisasi" value="<?= $organisasi?>" required>
+        </div>
+        <div class="form-group">
+            <label for="keperluan">Acara</label>
+            <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Keperluan" value="<?= $keperluan?>" required>
+        </div>
+        <div class="form-group">
+    <label for="ruangan">Ruangan</label>
+    <select class="form-control" name="ruangan" id="ruangan" required>
+        <?php
+        // Fetch values from the 'ruangan' table
+        $query = "SELECT id_ruangan, nama_ruangan FROM ruangan";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            while ($rowOption = mysqli_fetch_assoc($result)) {
+                $nama_ruangan = $rowOption['nama_ruangan'];
+
+                $selected = ($rowOption['id_ruangan'] == $row['id_ruangan']) ? 'selected' : '';
+                echo '<option value="' . $rowOption['id_ruangan'] . '" ' . $selected . '>' . $nama_ruangan . '</option>';
+            }
+
+            // Free the result set
+            mysqli_free_result($result);
+        } else {
+            // Handle query error
+            die("Query failed: " . mysqli_error($conn));
+        }
+        ?>
+    </select>
+</div>
+
+        <div class="form-group">
+            <label for="datebegin">Waktu Awal<br></label>
+            <input type="datetime-local" class="form-control" id="datebegin" name="datebegin" value="<?= $waktu_awal;?>" required>
+        </div>
+        <div class="form-group">
+            <label for="dateend">Waktu Selesai<br></label>
+            <input type="datetime-local" class="form-control" id="dateend" name="dateend" value="<?= $waktu_selesai;?>" required>
+        </div>
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
             </div>
 
           </div>
