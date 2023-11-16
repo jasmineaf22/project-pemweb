@@ -96,6 +96,7 @@ if (isset($_GET['edit'])) {
             <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Keperluan" value="<?= $keperluan?>" required>
         </div>
         <div class="form-group">
+        <input type="hidden" name="id_peminjaman" value="<?= $id_peminjaman ?>">
     <label for="ruangan">Ruangan</label>
     <select class="form-control" name="ruangan" id="ruangan" required>
         <?php
