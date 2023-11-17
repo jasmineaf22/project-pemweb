@@ -6,7 +6,7 @@ $keperluan = "";
 $id_ruangan = "";
 $waktu_awal = "";
 $waktu_selesai = "";
-
+$id_peminjaman = "";
 if (isset($_GET['edit'])) {
     $id_peminjaman = $_GET['edit'];
     $query = "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman";

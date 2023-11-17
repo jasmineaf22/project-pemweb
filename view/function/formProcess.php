@@ -1,6 +1,7 @@
 <?php
 include 'connect.php';
 session_start();
+$id_peminjaman = "";
 
 // Check if the user is logged in
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,10 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Assuming 'nama' is a key in the user array
     $id_user = $user['id_user'];
 
-    // Check if 'id_peminjaman' is set to determine if it's an update or insert operation
-    if (isset($_POST['id_peminjaman'])) {
+    // Check if 'id_peminjaman' is set and not empty
+    if (empty($id_peminjaman)) {
+        // Insert operation
+        $sql = "INSERT INTO peminjaman (id_ruangan, id_user, organisasi, keperluan, waktu_awal, waktu_selesai, status) 
+                VALUES ('$id_ruangan', '$id_user', '$organisasi', '$keperluan', '$waktu_awal', '$waktu_selesai', 'Diproses')";
+    } else {
         // Update operation
-        $id_peminjaman = $_POST['id_peminjaman'];
         $sql = "UPDATE peminjaman SET 
                 id_ruangan = '$id_ruangan', 
                 id_user = '$id_user', 
@@ -27,10 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 waktu_selesai = '$waktu_selesai', 
                 status = 'Diproses' 
                 WHERE id_peminjaman = '$id_peminjaman'";
-    } else {
-        // Insert operation
-        $sql = "INSERT INTO peminjaman (id_ruangan, id_user, organisasi, keperluan, waktu_awal, waktu_selesai, status) 
-                VALUES ('$id_ruangan', '$id_user', '$organisasi', '$keperluan', '$waktu_awal', '$waktu_selesai', 'Diproses')";
     }
 
     // Execute the SQL query

@@ -43,7 +43,7 @@
       </li>
       <li class="nav-item">
             <a href="function/logout.php" class="nav-link">
-            <i class="fas fa-times"></i>
+            <i class="fas fa-power-off"></i>
             </a>
       </li>
     </ul>
