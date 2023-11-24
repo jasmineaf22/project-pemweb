@@ -2,7 +2,6 @@
 include 'connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Ambil data dari form
     $nama = $_POST["nama"];
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
@@ -13,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
 
-    // Query untuk memasukkan data ke database
     $sql = "INSERT INTO user (nama, email, password, id_jurusan, isAdmin)
             VALUES ('$nama', '$email', '$password',  '$id_jurusan', '$isAdmin')";
             

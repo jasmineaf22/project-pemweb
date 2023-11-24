@@ -12,12 +12,9 @@ if (isset($_GET['edit'])) {
     $query = "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman";
     $result = $conn->query($query);
 
-    // Check if the row exists
     if ($result->num_rows > 0) {
-        // Fetch the data from the result set
         $row = $result->fetch_assoc();
 
-        // Assign the values to variables
         $organisasi = $row['organisasi'];
         $keperluan = $row['keperluan'];
         $id_ruangan = $row['id_ruangan'];
@@ -79,7 +76,6 @@ if (isset($_GET['edit'])) {
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <!-- Assuming you have already included the necessary PHP files for database connection -->
 
 <form method="post" action="function/formProcess.php">
     <div class="card-body">
@@ -100,7 +96,6 @@ if (isset($_GET['edit'])) {
     <label for="ruangan">Ruangan</label>
     <select class="form-control" name="ruangan" id="ruangan" required>
         <?php
-        // Fetch values from the 'ruangan' table
         $query = "SELECT id_ruangan, nama_ruangan FROM ruangan";
         $result = mysqli_query($conn, $query);
 
@@ -112,10 +107,8 @@ if (isset($_GET['edit'])) {
                 echo '<option value="' . $rowOption['id_ruangan'] . '" ' . $selected . '>' . $nama_ruangan . '</option>';
             }
 
-            // Free the result set
             mysqli_free_result($result);
         } else {
-            // Handle query error
             die("Query failed: " . mysqli_error($conn));
         }
         ?>

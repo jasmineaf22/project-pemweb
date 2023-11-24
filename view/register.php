@@ -46,7 +46,6 @@
             <div class="input-group mb-3">
             <select class="form-control" name="id_jurusan" required>
     <?php
-    // Fetch values from the 'jurusan' table
     $query = "SELECT * FROM jurusan";
     $result = mysqli_query($conn, $query);
 

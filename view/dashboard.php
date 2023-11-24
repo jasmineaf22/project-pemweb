@@ -1,12 +1,7 @@
 <?php include 'function/connect.php';?>
-<?php include 'function/connect.php';?>
 <?php include 'function/validateSession.php';?>
 
 <!DOCTYPE html>
-<!--
-This is a  template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
   <meta charset="utf-8">

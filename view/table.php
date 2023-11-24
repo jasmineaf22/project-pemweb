@@ -4,7 +4,6 @@
 
 if (isset($_GET['acc'])) {
   $id_peminjaman = $_GET['acc'];
-  // Update the status to 'Disetujui' in the database
   $query = "UPDATE peminjaman SET status = 'Disetujui' WHERE id_peminjaman = $id_peminjaman";
 }else if(isset($_GET['dec'])){
   $id_peminjaman = $_GET['dec'];
@@ -142,7 +141,6 @@ if(isset($query)){
 
                     
 
-                      // Free the result set
                       mysqli_free_result($result);
                     ?>
                   </tbody>

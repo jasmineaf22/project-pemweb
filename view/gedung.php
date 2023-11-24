@@ -53,7 +53,6 @@
                   <div id="accordion">
 
                     <?php
-                    // Fetch data from the database
                     $query = "SELECT * FROM gedung";
                     $result = mysqli_query($conn, $query);
 
@@ -63,7 +62,6 @@
                       $gedungDescription = $row['deskripsi'];
                       $gedungImage = $row['foto'];
 
-                      // Check if the current building has rooms
                       $hasRoomsQuery = "SELECT COUNT(*) as count FROM ruangan WHERE id_gedung = $gedungId";
                       $hasRoomsResult = mysqli_query($conn, $hasRoomsQuery);
                       $hasRoomsRow = mysqli_fetch_assoc($hasRoomsResult);
@@ -95,7 +93,6 @@
                                 </button>
                                 <div class="dropdown-menu">
                                   <?php
-                                  // Fetch rooms for the current building
                                   $roomsQuery = "SELECT * FROM ruangan WHERE id_gedung = $gedungId";
                                   $roomsResult = mysqli_query($conn, $roomsQuery);
 

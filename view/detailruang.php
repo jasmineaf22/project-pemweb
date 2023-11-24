@@ -111,11 +111,9 @@ if ($result->num_rows > 0) {
                 <ul class="pagination pagination-month justify-content-center">
 
                                 <?php
-                                // Loop through the result set and generate links
                                 $query = "SELECT id_ruangan, nama_ruangan FROM ruangan";
                                     $result = mysqli_query($conn, $query);
 
-                                    // Check for query execution errors
                                     if (!$result) {
                                         die("Query failed: " . mysqli_error($conn));
                                     }
@@ -124,7 +122,6 @@ if ($result->num_rows > 0) {
                                     $id_ruangan = $row['id_ruangan'];
                                     $nama_ruangan = $row['nama_ruangan'];
                                     $next[]= $id_ruangan;
-                                    // Modify the href as per your requirement
                                     $href = "detailruang.php?id=" . $id_ruangan;
 
                                     echo '
@@ -141,8 +138,6 @@ if ($result->num_rows > 0) {
                                   echo '<li class="page-item"><a class="page-link" href="detailruang.php?#">»</a></li>';
                               
                                 
-
-                                // Free the result set
                                 mysqli_free_result($result);
                                 ?>
 
