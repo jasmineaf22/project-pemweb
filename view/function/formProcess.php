@@ -5,11 +5,11 @@ $id_peminjaman = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_SESSION['user'];
-    $organisasi = htmlspecialchars($_POST['organisasi']);
-    $keperluan = htmlspecialchars($_POST['keperluan']);
-    $id_ruangan = htmlspecialchars($_POST['ruangan']);
-    $waktu_awal = htmlspecialchars($_POST['datebegin']);
-    $waktu_selesai = htmlspecialchars($_POST['dateend']);
+    $organisasi = $_POST['organisasi'];
+    $keperluan = $_POST['keperluan'];
+    $id_ruangan = $_POST['ruangan'];
+    $waktu_awal = $_POST['datebegin'];
+    $waktu_selesai = $_POST['dateend'];
 
     $id_user = $user['id_user'];
 

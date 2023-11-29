@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2023 at 02:06 PM
+-- Generation Time: Nov 29, 2023 at 10:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -94,15 +94,16 @@ INSERT INTO `peminjaman` (`id_peminjaman`, `id_ruangan`, `id_user`, `organisasi`
 (5, 6, 3, 'test', 'test', '2023-11-30 01:25:00', '2023-11-04 01:25:00', 'Disetujui'),
 (6, 8, 4, 'test', '213123', '2023-11-15 01:57:00', '2023-11-08 01:57:00', 'Disetujui'),
 (11, 1, 15, 'test', '213123', '2023-11-24 21:35:00', '2023-11-03 21:35:00', 'Disetujui'),
-(15, 6, 3, 'asdfghj', 'sdthn', '2023-11-19 22:39:00', '2023-11-04 22:39:00', 'Diproses'),
-(16, 5, 3, 'asdfghj', '213123', '2023-11-30 22:44:00', '2023-11-12 22:44:00', 'Diproses'),
+(15, 6, 3, 'asdfghj', 'sdthn', '2023-11-19 22:39:00', '2023-11-04 22:39:00', 'Ditolak'),
+(16, 5, 3, 'asdfghj', '213123', '2023-11-30 22:44:00', '2023-11-12 22:44:00', 'Disetujui'),
 (18, 7, 3, 'asdfghj', 'sdthn', '2023-11-03 12:39:00', '2023-11-04 22:39:00', 'Diproses'),
 (19, 5, 3, '111111', '213123', '2023-11-30 22:44:00', '2023-11-12 22:44:00', 'Diproses'),
 (20, 4, 3, 'asdfghj', 'sdthn', '2023-11-19 22:39:00', '2023-11-04 22:39:00', 'Diproses'),
 (22, 3, 15, 'dfhgbn', 'dsstytjg', '2023-11-17 16:27:34', '2023-11-17 16:27:34', 'Diproses'),
 (23, 1, 3, 'xxxxxxxx', 'xxxxxxxx', '2023-11-17 23:25:00', '2023-11-17 23:25:00', 'Diproses'),
 (24, 1, 3, 'xxxxxxxx', 'xxxxxxxx', '2023-11-17 23:25:00', '2023-11-17 23:25:00', 'Diproses'),
-(25, 1, 3, 'yyyyyyyyy', 'yyyyyyy', '2023-11-17 23:26:00', '2023-11-17 23:26:00', 'Diproses');
+(25, 1, 3, 'yyyyyyyyy', 'yyyyyyy', '2023-11-17 23:26:00', '2023-11-17 23:26:00', 'Diproses'),
+(26, 1, 16, 'asdfghj', 'aaaaaaaaa', '2023-11-29 10:56:00', '2023-11-29 10:56:00', 'Diproses');
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `isAdmin`, `id_jurusan`) VALUES
 (3, 'jasmine', 'jasmineaf04@gmail.com', '$2y$10$RZHlXKrU18mhmUFQOIpr6.1KmOjv38SJ9Oi3xfT7C0dh1Yml9uPSS', 0, 1),
 (4, 'sdasfdsf', 'qwe@qwe.qwe', '$2y$10$kPgA3HeO7Ta7eP4jwGJvLeynLL43qSvI4CYGuBsqxTMP3Dn1vjRvy', 0, 2),
-(15, 'admin', 'mimin@fyujdksl.com', '$2y$10$dZsGMWLnCyzk3OauusBYse2YpLA4SDFSkA1K3uiH/6kE13SAFwxSu', 1, 6);
+(15, 'admin', 'mimin@fyujdksl.com', '$2y$10$dZsGMWLnCyzk3OauusBYse2YpLA4SDFSkA1K3uiH/6kE13SAFwxSu', 1, 6),
+(16, 'test', 'jasmineaf@gmail.com', '$2y$10$OcMmc0/bupY0DDjfGGwIQOmGhG5g6nXZ1q.g.2fY5APpwqfmziSD.', 0, 4),
+(17, 'test', 'test@test.test', '$2y$10$yE1w9O.JyVtmH.YrnhaP4.YbZALdEAAFqQGKCCiiEixEAu5uoa6P6', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -218,7 +221,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `ruangan`
@@ -230,7 +233,7 @@ ALTER TABLE `ruangan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
